@@ -9,6 +9,5 @@ export interface Candidate {
     html_url: string;
     company: string | null;
     bio: string | null;
-  }
-  
+}
   
