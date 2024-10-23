@@ -60,7 +60,7 @@ Once the application is running, you'll be able to explore the following feature
 
 ## Demo
 
-You can view the live demo of the Candidate Search Application here: 
+You can view the live demo of the Candidate Search Application here: https://github-candidate-search.onrender.com
 
 ## Questions
 
