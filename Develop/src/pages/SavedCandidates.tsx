@@ -20,26 +20,41 @@ const SavedCandidates = () => {
   };
 
   return (
-    <>
+    <main>
       <h1>Potential Candidates</h1>
       {savedCandidates.length === 0 ? (
         <p>No candidates have been saved.</p>
       ) : (
-        <ul>
-          {savedCandidates.map((candidate) => (
-            <li key={candidate.login} className="candidate-item">
-              <img src={candidate.avatar_url} alt={candidate.name}/>
-              <p className="candidate-name">{candidate.name || 'N/A'}</p>
-              <p className="candidate-location">{candidate.location || 'N/A'}</p>
-              <p className="candidate-email">{candidate.email || 'N/A'}</p>
-              <p className="candidate-company">{candidate.company || 'N/A'}</p>
-              <p className="candidate-bio">{candidate.bio || 'N/A'}</p>
-              <button className="reject-button" onClick={() => rejectCandidate(candidate.login)}>Reject</button>
-            </li>
-          ))}
-        </ul>
+        <table className="candidates-table">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Location</th>
+              <th>Email</th>
+              <th>Company</th>
+              <th>Bio</th>
+              <th>Reject</th>
+            </tr>
+          </thead>
+          <tbody>
+            {savedCandidates.map((candidate) => (
+              <tr key={candidate.login}>
+                <td><img src={candidate.avatar_url} alt={candidate.name} className="candidate-avatar" /></td>
+                <td>{candidate.name || 'N/A'}</td>
+                <td>{candidate.location || 'N/A'}</td>
+                <td>{candidate.email || 'N/A'}</td>
+                <td>{candidate.company || 'N/A'}</td>
+                <td>{candidate.bio || 'N/A'}</td>
+                <td>
+                  <button className="reject-button" onClick={() => rejectCandidate(candidate.login)}>Reject</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       )}
-    </>
+    </main>
   );
 };
 

@@ -41,29 +41,33 @@ const CandidateSearch = () => {
   }, []);
 
   return (
-    <div>
+    <main>
       <h1>Candidate Search</h1>
       <div>
         {noMoreCandidates || !candidate ? (
           <p>No candidates available</p>
         ) : (
-          <>
-            <img src={candidate.avatar_url} alt={candidate.name} />
-            <p>Name: {candidate.name || 'N/A'}</p>
-            <p>Username: {candidate.login}</p>
-            <p>Location: {candidate.location || 'N/A'}</p>
-            <p>Email: {candidate.email || 'N/A'}</p>
-            <p>Company: {candidate.company || 'N/A'}</p>
-            <p>
-              Profile: <a href={candidate.html_url}>{candidate.html_url}</a>
-            </p>
-            <p>Bio: {candidate.bio}</p>
-            <button onClick={saveCandidate}>+</button>
-            <button onClick={skipCandidate}>-</button>
-          </>
+          <div className="card">
+            <img src={candidate.avatar_url} alt={candidate.name} className="candidate-avatar" />
+            <div className="candidate-info">
+              <p>Name: {candidate.name || 'N/A'}</p>
+              <p>Username: {candidate.login}</p>
+              <p>Location: {candidate.location || 'N/A'}</p>
+              <p>Email: {candidate.email || 'N/A'}</p>
+              <p>Company: {candidate.company || 'N/A'}</p>
+              <p>
+                Profile: <a href={candidate.html_url} className="candidate-link">{candidate.html_url}</a>
+              </p>
+              <p>Bio: {candidate.bio}</p>
+            </div>
+            <div className="button-container">
+              <button className="skip-button" onClick={skipCandidate}>-</button>
+              <button className="save-button" onClick={saveCandidate}>+</button>
+            </div>
+          </div>
         )}
       </div>
-    </div>
+    </main>
   );
 };
 
